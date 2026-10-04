@@ -1,6 +1,6 @@
 import React from 'react';
 import { SERVICES_DATA, ServiceItem } from '../../data/mockData';
-import { Reveal, Stagger, TiltCard } from '../common';
+import { FadeIn, Reveal, Stagger, TextReveal, TiltCard } from '../common';
 import {
   Users, GraduationCap, Plane, Car, Compass, Truck,
   ArrowRight, Clock
@@ -44,14 +44,16 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenQuoteMod
         <Reveal className="text-center max-w-3xl mx-auto mb-14 space-y-4">
           
 
-          <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-extrabold text-slate-900 tracking-tight leading-[1.15]">
-            Tailored transportation &amp; fleet solutions in Qatar
+<h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-extrabold text-slate-900 tracking-tight leading-[1.15]">
+            <TextReveal byWord>Tailored transportation &amp; fleet solutions in Qatar</TextReveal>
           </h2>
 
+          <FadeIn delay={0.15}>
           <p className="text-slate-600 text-sm sm:text-base font-light leading-relaxed pt-1">
             Whether you need daily corporate staff shuttles, secure school transit, VIP airport
             taxis, or 24/7 towing, our fleet is at your service.
 </p>
+          </FadeIn>
         </Reveal>
 
         {/* ── Cards ── */}
@@ -65,12 +67,12 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenQuoteMod
               <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#FF6B00] to-[#FFB020] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
 
               {/* Image */}
-              <div className="relative h-52 overflow-hidden bg-slate-100">
+<div className="relative h-52 overflow-hidden bg-slate-100 anim-img-hover">
                 <img
                   src={service.image}
                   alt={service.title}
                   loading="lazy"
-                  className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
+                  className="anim-img-ken-burns w-full h-full object-cover object-center"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/15 to-transparent" />
 

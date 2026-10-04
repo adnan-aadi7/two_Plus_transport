@@ -97,7 +97,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     id: 'towing-breakdown',
     title: 'Towing & Roadside Assistance',
     shortDesc: '24/7 fast dispatch flatbed towing, breakdown rescue, and vehicle recovery.',
-    description: 'Stranded on the road? Our heavy-duty hydraulic flatbed tow trucks provide instant emergency towing, jump-start assistance, tire change, and secure car transport across Qatar.',
+    description: 'Stranded on the road? Our heavy-duty Pickup and Trucks provide instant emergency towing, jump-start assistance, tire change, and secure car transport across Qatar.',
     image: '/images/hero-slides/slide-towing.jpg',
     features: ['Rapid 15-Minute Response', 'Hydraulic Tilt Flatbeds', 'Zero-Damage Wheel Strapping', 'Interstate Vehicle Hauling', '24/7 Hotline Support'],
     iconName: 'Truck',
@@ -144,7 +144,7 @@ export const FLEET_DATA: Vehicle[] = [
   },
   {
     id: 'fleet-5',
-    name: 'Heavy Duty Hydraulic Flatbed Tow Truck',
+    name: 'Heavy Duty Pickup and Truck',
     category: 'Tow Truck',
     capacity: 'Up to 5 Tons',
     features: ['Full Tilt Hydraulics', 'Soft-Strap Tie Down', 'Winch Assistance', 'GPS Navigation'],

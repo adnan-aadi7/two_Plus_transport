@@ -124,7 +124,7 @@ export const Testimonials: React.FC = () => {
                     src={t.avatar}
                     alt={t.name}
                     loading="lazy"
-                    className="w-12 h-12 rounded-full object-cover border-2 border-[#0066FF]"
+                    className="w-12 h-12 rounded-full object-cover border-2 border-[#0066FF] anim-img-hover"
                   />
                   <div>
                     <h4 className="text-sm font-bold text-slate-900">{t.name}</h4>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { FadeIn, StaggerItem, StaggerText, TextReveal } from '../common';
 
 interface TourListProps {
   onOpenBookingModal: (serviceType?: string) => void;
@@ -29,15 +30,17 @@ export const TourList: React.FC<TourListProps> = ({ onOpenBookingModal }) => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-12">
       <div className="text-center max-w-2xl mx-auto space-y-2">
-        <h2 className="text-3xl font-extrabold text-slate-900">Featured Excursion Packages</h2>
-        <p className="text-slate-600 text-sm">Tailored for corporate groups, VIP delegates, and international tourists.</p>
+        <h2 className="text-3xl font-extrabold text-slate-900"><TextReveal byWord>Featured Excursion Packages</TextReveal></h2>
+        <FadeIn delay={0.15}><p className="text-slate-600 text-sm">Tailored for corporate groups, VIP delegates, and international tourists.</p></FadeIn>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <StaggerText className="grid grid-cols-1 md:grid-cols-3 gap-8" stagger={0.12} as="div">
         {packages.map((pkg, idx) => (
-          <div key={idx} className="bg-white rounded-2xl border border-slate-200 shadow-md overflow-hidden flex flex-col justify-between hover:shadow-xl transition-all">
+          <StaggerItem key={idx} className="bg-white rounded-2xl border border-slate-200 shadow-md overflow-hidden flex flex-col justify-between hover:shadow-xl transition-all">
             <div>
-              <img src={pkg.image} alt={pkg.title} className="w-full h-48 object-cover" />
+              <div className="anim-img-hover">
+              <img src={pkg.image} alt={pkg.title} loading="lazy" className="anim-img-ken-burns w-full h-48 object-cover" />
+              </div>
               <div className="p-6 space-y-3">
                 <div className="flex items-center text-xs text-[#0066FF] font-bold">
                   <span>{pkg.duration}</span>
@@ -58,9 +61,9 @@ export const TourList: React.FC<TourListProps> = ({ onOpenBookingModal }) => {
                 RESERVE TOUR
               </button>
             </div>
-          </div>
+          </StaggerItem>
         ))}
-      </div>
+      </StaggerText>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { FadeIn, TextReveal } from '../common';
 
 interface ValetHeroProps {
   onOpenQuoteModal: (serviceType?: string) => void;
@@ -11,20 +12,25 @@ export const ValetHero: React.FC<ValetHeroProps> = ({ onOpenQuoteModal }) => {
       <img 
         src="/images/valet-parking.jpg" 
         alt="Luxury Valet Parking Qatar" 
-        className="absolute inset-0 w-full h-full object-cover object-center opacity-30"
+        className="anim-img-ken-burns absolute inset-0 w-full h-full object-cover object-center opacity-30"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+        <FadeIn duration={0.6}>
         <span className="px-3.5 py-1 rounded-full bg-blue-500/20 text-sky-400 border border-blue-500/40 text-xs font-extrabold uppercase tracking-widest">
-          HOSPITALITY & VIP EVENT SERVICES
+          HOSPITALITY &amp; VIP EVENT SERVICES
         </span>
+        </FadeIn>
         <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">
-          Professional Valet Parking Services
+          <TextReveal byWord delay={0.12}>Professional Valet Parking Services</TextReveal>
         </h1>
+        <FadeIn delay={0.32}>
         <p className="text-slate-300 text-base max-w-2xl font-light">
           Premier valet operations for 5-star hotels, luxury shopping malls, VIP galas, private events, and corporate venues in Qatar.
         </p>
+        </FadeIn>
+        <FadeIn delay={0.44}>
         <div className="pt-4 flex flex-wrap gap-4">
           <button
             onClick={() => onOpenQuoteModal('Valet Parking')}
@@ -34,6 +40,7 @@ export const ValetHero: React.FC<ValetHeroProps> = ({ onOpenQuoteModal }) => {
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>
+        </FadeIn>
       </div>
     </div>
   );

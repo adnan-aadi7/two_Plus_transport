@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FLEET_DATA, Vehicle } from '../../data/mockData';
 import { Users, ArrowRight, Check } from 'lucide-react';
-import { Reveal, Stagger, TiltCard } from '../common';
+import { Reveal, Stagger, TextReveal, TiltCard } from '../common';
 
 interface FleetShowcaseProps {
   onOpenQuoteModal: (serviceType?: string) => void;
@@ -22,8 +22,8 @@ export const FleetShowcase: React.FC<FleetShowcaseProps> = ({ onOpenQuoteModal }
 
         <Reveal className="text-center max-w-3xl mx-auto mb-12 space-y-3">
          
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Our Premium Vehicle Fleet
+<h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            <TextReveal byWord>Our Premium Vehicle Fleet</TextReveal>
           </h2>
           <div className="w-20 h-1 bg-[#0066FF] mx-auto rounded-full"></div>
           <p className="text-slate-600 text-sm font-light">
@@ -52,11 +52,12 @@ export const FleetShowcase: React.FC<FleetShowcaseProps> = ({ onOpenQuoteModal }
             <div
               className="bg-white rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col group h-full hover:border-sky-300"
             >
-              <div className="relative h-52 bg-slate-100 overflow-hidden">
+<div className="relative h-52 bg-slate-100 overflow-hidden anim-img-hover">
                 <img
                   src={vehicle.image}
                   alt={vehicle.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                  className="anim-img-ken-burns w-full h-full object-cover"
                 />
                 <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md text-white text-[11px] font-bold">
                   {vehicle.category}

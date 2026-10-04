@@ -1,7 +1,7 @@
 import React from 'react';
 import { TEAM_MEMBERS } from '../../data/mockData';
 import { Mail, Phone } from 'lucide-react';
-import { Reveal, Stagger } from '../common';
+import { Reveal, Stagger, TextReveal } from '../common';
 
 export const LeadershipSection: React.FC = () => {
   return (
@@ -10,7 +10,7 @@ export const LeadershipSection: React.FC = () => {
 
 <Reveal className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Our Leadership Team
+            <TextReveal byWord>Our Leadership Team</TextReveal>
           </h2>
           <div className="w-20 h-1 bg-[#0066FF] mx-auto rounded-full"></div>
           <p className="text-slate-600 text-sm font-light">
@@ -24,11 +24,12 @@ export const LeadershipSection: React.FC = () => {
               key={idx}
               className="bg-white rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group hover:-translate-y-1 hover:border-sky-300 flex flex-col"
             >
-              <div className="relative h-64 overflow-hidden bg-slate-100">
+              <div className="relative h-64 overflow-hidden bg-slate-100 anim-img-hover">
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                  className="anim-img-ken-burns w-full h-full object-cover object-center"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
 

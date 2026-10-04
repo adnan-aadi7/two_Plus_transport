@@ -38,7 +38,7 @@ export const AuthLayout: React.FC<AuthLayoutProps> = ({
               <img
                 src={image}
                 alt={imageAlt}
-                className="absolute inset-0 -z-20 h-full w-full object-cover"
+                className="anim-img-ken-burns absolute inset-0 -z-20 h-full w-full object-cover"
               />
               <div className="absolute inset-0 -z-10 bg-gradient-to-b from-slate-950/85 via-slate-950/60 to-slate-950/35" />
 

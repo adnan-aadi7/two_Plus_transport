@@ -1,6 +1,6 @@
 import React from 'react';
 import { Award, Heart, Shield } from 'lucide-react';
-import { Reveal, Stagger } from '../common';
+import { Reveal, Stagger, TextReveal } from '../common';
 
 export const MissionValues: React.FC = () => {
   return (
@@ -10,7 +10,7 @@ export const MissionValues: React.FC = () => {
 <Reveal className="text-center max-w-4xl mx-auto mb-8 space-y-4">
 
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Our Mission
+            <TextReveal byWord>Our Mission</TextReveal>
           </h2>
           <div className="w-20 h-1 bg-[#0066FF] mx-auto rounded-full"></div>
           

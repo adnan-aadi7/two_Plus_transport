@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MapPin } from 'lucide-react';
+import { FadeIn, StaggerItem, StaggerText, TextReveal } from '../../components/common';
 
 export const CareersPage: React.FC = () => {
   const [appliedRole, setAppliedRole] = useState<string | null>(null);
@@ -15,22 +16,26 @@ export const CareersPage: React.FC = () => {
     <div className="bg-white min-h-screen py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-3">
+          <FadeIn duration={0.6}>
           <span className="px-3.5 py-1 rounded-full bg-sky-50 text-[#0066FF] border border-sky-200 text-xs font-extrabold uppercase">
             JOIN OUR GROWING TEAM
           </span>
-          <h1 className="text-4xl font-extrabold text-slate-900">Career Opportunities</h1>
-          <p className="text-slate-600 text-sm">Build your career with Qatar's leading transportation and logistics fleet operator.</p>
+          </FadeIn>
+          <h1 className="text-4xl font-extrabold text-slate-900"><TextReveal byWord delay={0.12}>Career Opportunities</TextReveal></h1>
+          <FadeIn delay={0.3}><p className="text-slate-600 text-sm">Build your career with Qatar's leading transportation and logistics fleet operator.</p></FadeIn>
         </div>
 
         {appliedRole && (
+          <FadeIn amount={0.2}>
           <div className="bg-emerald-50 border border-emerald-200 p-4 rounded-xl text-center text-emerald-800 text-xs font-bold">
             ✓ Application submitted for {appliedRole}! Our HR team will reach out shortly.
           </div>
+          </FadeIn>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <StaggerText className="grid grid-cols-1 md:grid-cols-2 gap-6" stagger={0.1} as="div">
           {jobs.map((j, i) => (
-            <div key={i} className="bg-slate-50 p-6 rounded-2xl border border-slate-200 flex flex-col justify-between space-y-4 hover:border-[#0066FF] transition-colors">
+            <StaggerItem key={i} className="bg-slate-50 p-6 rounded-2xl border border-slate-200 flex flex-col justify-between space-y-4 hover:border-[#0066FF] transition-colors">
               <div className="space-y-2">
                 <div className="flex justify-between items-start">
                   <h3 className="text-lg font-bold text-slate-900">{j.title}</h3>
@@ -51,9 +56,9 @@ export const CareersPage: React.FC = () => {
               >
                 APPLY FOR POSITION
               </button>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerText>
       </div>
     </div>
   );

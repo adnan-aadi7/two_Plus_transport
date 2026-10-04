@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight, ShieldCheck, Headset, Star, Users } from 'lucide-react';
 import { COMPANY_INFO, CONTACT_LINKS } from '../../data/companyInfo';
-import { Reveal, Stagger, TiltCard } from '../common';
+import { FadeIn, Reveal, Stagger, TextReveal, TiltCard } from '../common';
 
 interface AboutSectionProps {
   onOpenQuoteModal: () => void;
@@ -36,14 +36,16 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenQuoteModal }) 
           {/* ── Copy ── */}
 <Reveal className="lg:col-span-7 lg:pt-6">
             <h2 className="max-w-2xl text-4xl font-semibold leading-[1.05] tracking-[-0.03em] text-[#0B1B33] sm:text-5xl lg:text-6xl">
-              Premium transport, delivered on time.
+              <TextReveal byWord>Premium transport, delivered on time.</TextReveal>
             </h2>
 
+            <FadeIn delay={0.18}>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-[#475569] sm:text-lg">
               <span className="font-semibold text-[#0B1B33]">Two Plus Transport</span> moves
               Qatar&rsquo;s employees, students and guests. Staff shuttles, school runs, airport
               transfers, valet, tours and 24/7 towing, all from one licensed fleet.
             </p>
+            </FadeIn>
 
             {/* Highlights: ruled list instead of boxed cards */}
 <Stagger className="mt-12 grid grid-cols-1 gap-x-10 sm:grid-cols-2" stagger={0.1}>
@@ -81,11 +83,11 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenQuoteModal }) 
 
           {/* ── Visual ── */}
           <Reveal className="relative lg:col-span-5" delay={0.12}>
-            <div className="relative overflow-hidden rounded-[2rem] [perspective:1100px]">
+            <div className="relative overflow-hidden rounded-[2rem] [perspective:1100px] anim-img-hover">
               <img
                 src="/images/about-fleet.jpg"
                 alt="Two Plus Transport executive fleet in Qatar"
-                className="h-[520px] w-full object-cover sm:h-[600px] transition-transform duration-700 hover:scale-[1.03]"
+                className="anim-img-ken-burns h-[520px] w-full object-cover sm:h-[600px]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0B1B33]/60 via-transparent to-transparent" />
             </div>

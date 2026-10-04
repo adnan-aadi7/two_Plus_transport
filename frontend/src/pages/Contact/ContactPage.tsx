@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Send, CheckCircle2, Clock } from 'lucide-react';
 import api, { extractError } from '../../lib/apiClient';
 import { useToast } from '../../components/common/ToastProvider';
+import { FadeIn, TextReveal } from '../../components/common';
 import { COMPANY_INFO, CONTACT_LINKS } from '../../data/companyInfo';
 
 export const ContactPage: React.FC = () => {
@@ -38,11 +39,13 @@ export const ContactPage: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         
         <div className="text-center max-w-3xl mx-auto space-y-3">
+          <FadeIn duration={0.6}>
           <span className="px-3.5 py-1 rounded-full bg-sky-50 text-[#0066FF] border border-sky-200 text-xs font-extrabold uppercase">
             GET IN TOUCH WITH US
           </span>
-          <h1 className="text-4xl font-extrabold text-slate-900">Contact & Dispatch Support</h1>
-          <p className="text-slate-600 text-sm">Have a question or need emergency fleet dispatch? Contact our team 24/7.</p>
+          </FadeIn>
+          <h1 className="text-4xl font-extrabold text-slate-900"><TextReveal byWord delay={0.12}>Contact &amp; Dispatch Support</TextReveal></h1>
+          <FadeIn delay={0.3}><p className="text-slate-600 text-sm">Have a question or need emergency fleet dispatch? Contact our team 24/7.</p></FadeIn>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
