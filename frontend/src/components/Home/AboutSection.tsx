@@ -35,26 +35,26 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenQuoteModal }) 
 
           {/* ── Copy ── */}
 <Reveal className="lg:col-span-7 lg:pt-6">
-            <h2 className="max-w-2xl text-4xl font-semibold leading-[1.05] tracking-[-0.03em] text-[#0B1B33] sm:text-5xl lg:text-6xl">
+<h2 className="max-w-2xl text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-[1.15]">
               <TextReveal byWord>Premium transport, delivered on time.</TextReveal>
             </h2>
 
             <FadeIn delay={0.18}>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-[#475569] sm:text-lg">
-              <span className="font-semibold text-[#0B1B33]">Two Plus Transport</span> moves
+            <p className="mt-6 max-w-xl text-slate-600 text-sm sm:text-base font-light leading-relaxed">
+              <span className="font-bold text-slate-900">Two Plus Transport</span> moves
               Qatar&rsquo;s employees, students and guests. Staff shuttles, school runs, airport
               transfers, valet, tours and 24/7 towing, all from one licensed fleet.
             </p>
             </FadeIn>
 
             {/* Highlights: ruled list instead of boxed cards */}
-<Stagger className="mt-12 grid grid-cols-1 gap-x-10 sm:grid-cols-2" stagger={0.1}>
+            <Stagger className="mt-12 grid grid-cols-1 gap-x-10 sm:grid-cols-2" stagger={0.1}>
               {HIGHLIGHTS.map(({ icon: Icon, title, text }) => (
-                <div key={title} className="flex gap-4 border-t border-[#E2E8F0] py-6">
+                <div key={title} className="flex gap-4 border-t border-slate-200 py-6">
                   <Icon className="mt-0.5 h-5 w-5 shrink-0 text-[#0066FF]" aria-hidden="true" />
                   <div>
-                    <dt className="text-sm font-semibold text-[#0B1B33]">{title}</dt>
-                    <dd className="mt-1 text-sm leading-relaxed text-[#64748B]">{text}</dd>
+                    <dt className="text-sm font-bold text-slate-900">{title}</dt>
+                    <dd className="mt-1 text-sm leading-relaxed text-slate-600">{text}</dd>
                   </div>
                 </div>
               ))}

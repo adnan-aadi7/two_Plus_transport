@@ -30,11 +30,7 @@ const COMPANY_LINKS = [
   { path: '/contact', label: 'Contact', icon: Building2, desc: 'Get in touch with us' },
 ];
 
-const LANGUAGES = [
-  { code: 'EN', label: 'English', flag: '🇬🇧' },
-  { code: 'AR', label: 'العربية', flag: '🇶🇦' },
-  { code: 'FR', label: 'Français', flag: '🇫🇷' },
-];
+
 
 // Reusable dropdown hook – closes on outside click
 function useDropdown() {
@@ -63,7 +59,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal, onOpenBookingM
   const servicesDD = useDropdown();
   const companyDD = useDropdown();
   const langDD = useDropdown();
-  const [currentLang, setCurrentLang] = useState(LANGUAGES[0]);
+  
 
   const isServicesActive = SERVICES_LINKS.some(l => l.path === location.pathname);
   const isCompanyActive = COMPANY_LINKS.some(l => l.path === location.pathname);
@@ -71,14 +67,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal, onOpenBookingM
   const closeAll = () => setMobileOpen(false);
 
   return (
-    <header className={`z-50 w-full transition-all duration-300 ${
+    <header className={`z-50 w-full ${
       isHome
         ? 'fixed inset-x-0 top-0 bg-white shadow-md border-b border-slate-100'
         : 'sticky top-0 bg-white shadow-md border-b border-slate-100'
     }`}>
 
       {/* ── Top Info Bar ── */}
-      <div className="text-white text-[11px] sm:text-xs py-1.5 sm:py-2 bg-slate-900 transition-colors duration-300">
+      <div className="text-white text-[11px] sm:text-xs py-1.5 sm:py-2 bg-slate-900">
         <div className="max-w-7xl mx-auto flex justify-between items-center gap-2 px-4 sm:px-6 lg:px-10">
           {/* Left: contact info */}
           <div className="flex items-center gap-3 sm:gap-5 min-w-0">
@@ -100,25 +96,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal, onOpenBookingM
           {/* Right: WhatsApp + Language + Login */}
           <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
             {/* Language picker */}
-            <div className="relative hidden sm:block" ref={langDD.ref}>
-              <button onClick={() => langDD.setOpen(o => !o)}
-                className="flex items-center space-x-1 text-slate-300 hover:text-white px-2 py-0.5 rounded bg-slate-800 border border-slate-700 hover:border-[#00A3FF] transition-colors">
-                <Globe className="w-3 h-3 text-[#00A3FF]" />
-                <span className="font-semibold">{currentLang.flag} {currentLang.code}</span>
-                <ChevronDown className={`w-3 h-3 transition-transform ${langDD.open ? 'rotate-180' : ''}`} />
-              </button>
-              {langDD.open && (
-                <div className="absolute right-0 mt-1 w-36 bg-white text-slate-800 rounded-lg shadow-xl border border-slate-200 py-1 z-[60]">
-                  {LANGUAGES.map(lang => (
-                    <button key={lang.code} onClick={() => { setCurrentLang(lang); langDD.setOpen(false); }}
-                      className={`w-full text-left px-3 py-1.5 text-xs flex items-center justify-between hover:bg-sky-50 hover:text-[#0066FF] transition-colors ${currentLang.code === lang.code ? 'bg-sky-50 font-bold text-[#0066FF]' : ''}`}>
-                      <span>{lang.flag} {lang.label}</span>
-                      {currentLang.code === lang.code && <span>✓</span>}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
+            
 
             {/* Portal login / account */}
             {signedInUser ? (
